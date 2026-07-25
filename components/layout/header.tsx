@@ -11,6 +11,7 @@ const navItems = [
   { href: "/", label: "首页" },
   { href: "/paths", label: "学习路径" },
   { href: "/interview", label: "面试题" },
+  { href: "/mock-interview", label: "模拟面试" },
   { href: "/projects", label: "项目" },
   { href: "/evaluation", label: "评估" },
   { href: "/admin", label: "管理" },

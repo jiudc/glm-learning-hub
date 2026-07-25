@@ -131,13 +131,16 @@ export default async function HomePage() {
             </p>
             <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
               <Button size="lg" asChild>
-                <Link href="/paths">
-                  开始学习
-                  <ArrowRight className="ml-2 h-4 w-4" />
+                <Link href="/mock-interview">
+                  <Zap className="mr-2 h-4 w-4" />
+                  模拟面试
                 </Link>
               </Button>
               <Button size="lg" variant="outline" asChild>
-                <Link href="/interview">刷面试题</Link>
+                <Link href="/paths">学习路径</Link>
+              </Button>
+              <Button size="lg" variant="ghost" asChild>
+                <Link href="/interview">题库</Link>
               </Button>
             </div>
           </div>
