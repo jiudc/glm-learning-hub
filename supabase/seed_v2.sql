@@ -8,6 +8,7 @@
 -- ============================================
 DELETE FROM learning_stages WHERE path_id IN (SELECT id FROM learning_paths WHERE slug IN ('rag-master', 'llm-agent', 'system-design-interview', 'project-portfolio'));
 DELETE FROM learning_paths WHERE slug IN ('rag-master', 'llm-agent', 'system-design-interview', 'project-portfolio');
+DELETE FROM learning_paths WHERE title IN ('GLM 基础入门', 'API 开发与集成', '模型微调实战', 'Agent 开发进阶');
 
 INSERT INTO learning_paths (slug, title, description, category, difficulty, icon, estimated_hours, is_featured, sort_order) VALUES
 ('rag-master', 'RAG 系统设计与实战', '从 Naive RAG 到 Agentic RAG 的完整链路：文档处理、向量检索、混合搜索、重排序、评估体系。覆盖 RAGAS 指标、HyDE、Graph RAG 等 2025 年最新技术。', 'rag', 'intermediate', '🔍', 40, true, 1),

@@ -3,6 +3,16 @@
 -- 在 Supabase SQL Editor 执行
 -- ============================================
 
+-- 0. 为现有表添加缺失的列
+ALTER TABLE learning_paths ADD COLUMN IF NOT EXISTS slug TEXT;
+ALTER TABLE learning_paths ADD COLUMN IF NOT EXISTS category TEXT;
+ALTER TABLE learning_paths ADD COLUMN IF NOT EXISTS difficulty TEXT;
+ALTER TABLE learning_paths ADD COLUMN IF NOT EXISTS estimated_hours INT;
+ALTER TABLE learning_paths ADD COLUMN IF NOT EXISTS is_featured BOOLEAN DEFAULT false;
+
+-- 为已有数据生成 slug
+UPDATE learning_paths SET slug = lower(regexp_replace(title, '[^a-zA-Z0-9]+', '-', 'g')) WHERE slug IS NULL;
+
 -- 1. 课程表
 CREATE TABLE IF NOT EXISTS courses (
   id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
