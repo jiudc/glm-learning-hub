@@ -15,7 +15,7 @@ INSERT INTO learning_stages (path_id, title, description, sort_order, status)
 SELECT
   p.id,
   stage.title,
-  stage.desc,
+  stage.description,
   stage.ord,
   stage.status
 FROM learning_paths p
@@ -24,7 +24,7 @@ CROSS JOIN LATERAL (VALUES
   ('GLM 模型架构原理', '自回归空白填充、预训练目标、模型结构', 2, 'in_progress'),
   ('环境搭建与快速开始', '安装依赖、获取API Key、第一个请求', 3, 'not_started'),
   ('GLM-4 vs GLM-5 对比', '版本演进、能力差异、选择指南', 4, 'not_started')
-) AS stage(title, desc, ord, status)
+) AS stage(title, description, ord, status)
 WHERE p.title = 'GLM 基础入门';
 
 -- 插入学习阶段（API 开发）
@@ -32,7 +32,7 @@ INSERT INTO learning_stages (path_id, title, description, sort_order, status)
 SELECT
   p.id,
   stage.title,
-  stage.desc,
+  stage.description,
   stage.ord,
   stage.status
 FROM learning_paths p
@@ -41,7 +41,7 @@ CROSS JOIN LATERAL (VALUES
   ('REST API 调用', 'OpenAI 兼容接口、参数说明、最佳实践', 2, 'not_started'),
   ('流式输出 SSE', '实现打字机效果的流式响应', 3, 'not_started'),
   ('多模态 API', '图像理解、视觉问答接口调用', 4, 'not_started')
-) AS stage(title, desc, ord, status)
+) AS stage(title, description, ord, status)
 WHERE p.title = 'API 开发与集成';
 
 -- 插入学习阶段（模型微调）
@@ -49,7 +49,7 @@ INSERT INTO learning_stages (path_id, title, description, sort_order, status)
 SELECT
   p.id,
   stage.title,
-  stage.desc,
+  stage.description,
   stage.ord,
   stage.status
 FROM learning_paths p
@@ -58,7 +58,7 @@ CROSS JOIN LATERAL (VALUES
   ('准备训练数据', '数据格式、数据清洗、数据集构建', 2, 'not_started'),
   ('使用官方工具微调', '智谱微调平台操作、参数配置', 3, 'not_started'),
   ('评估与部署', '模型评估指标、部署推理服务', 4, 'not_started')
-) AS stage(title, desc, ord, status)
+) AS stage(title, description, ord, status)
 WHERE p.title = '模型微调实战';
 
 -- 插入学习阶段（Agent 开发）
@@ -66,7 +66,7 @@ INSERT INTO learning_stages (path_id, title, description, sort_order, status)
 SELECT
   p.id,
   stage.title,
-  stage.desc,
+  stage.description,
   stage.ord,
   stage.status
 FROM learning_paths p
@@ -75,7 +75,7 @@ CROSS JOIN LATERAL (VALUES
   ('AutoGLM 使用', 'AutoGLM 产品体验与 API 调用', 2, 'not_started'),
   ('CogAgent 开发', 'GUI Agent 开发、屏幕理解与操作', 3, 'not_started'),
   ('自定义 Agent 构建', '基于 GLM 构建自己的 Agent 应用', 4, 'not_started')
-) AS stage(title, desc, ord, status)
+) AS stage(title, description, ord, status)
 WHERE p.title = 'Agent 开发进阶';
 
 -- 插入资源导航
