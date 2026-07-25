@@ -33,6 +33,9 @@ yarn-error.log*
 # env files (can opt-in for committing if needed)
 .env*
 
+# 恢复码等敏感文件
+.recovery_codes.txt
+
 # vercel
 .vercel
 

@@ -7,10 +7,9 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Input } from "@/components/ui/input";
-import { Search, MessageSquare, Code2, Lightbulb, Building2 } from "lucide-react";
-import type { InterviewQuestion } from "@/types/database";
+import { Search, MessageSquare, Code2, Lightbulb, Building2, Briefcase } from "lucide-react";
 import Link from "next/link";
+import type { InterviewQuestion } from "@/types/database";
 
 async function getQuestions(): Promise<InterviewQuestion[]> {
   const { data, error } = await supabase
@@ -25,7 +24,7 @@ async function getQuestions(): Promise<InterviewQuestion[]> {
 const categoryConfig: Record<string, { label: string; icon: typeof Search; color: string }> = {
   system_design: { label: "系统设计", icon: Building2, color: "text-blue-600" },
   algorithm: { label: "算法实现", icon: Code2, color: "text-green-600" },
-  project: { label: "项目深挖", icon: Lightbulb, color: "text-purple-600" },
+  project: { label: "项目深挖", icon: Briefcase, color: "text-purple-600" },
   coding: { label: "编码题", icon: Code2, color: "text-orange-600" },
   behavioral: { label: "行为面试", icon: MessageSquare, color: "text-pink-600" },
 };
@@ -40,7 +39,6 @@ const difficultyConfig: Record<string, { label: string; color: string }> = {
 export default async function InterviewPage() {
   const questions = await getQuestions();
 
-  // Group by category
   const grouped = questions.reduce((acc, q) => {
     if (!acc[q.category]) acc[q.category] = [];
     acc[q.category].push(q);
@@ -63,7 +61,7 @@ export default async function InterviewPage() {
 
       {questions.length === 0 ? (
         <div className="text-center py-12 text-muted-foreground">
-          <p>暂无面试题数据，请先在 Supabase 中执行 seed_v2.sql</p>
+          <p>暂无面试题数据，请先在 Supabase 中执行 seed_v2_final.sql</p>
         </div>
       ) : (
         <div className="mx-auto max-w-5xl space-y-10">

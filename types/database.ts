@@ -11,6 +11,11 @@ export interface Database {
           icon: string | null;
           sort_order: number;
           created_at: string;
+          slug: string | null;
+          category: string | null;
+          difficulty: string | null;
+          estimated_hours: number | null;
+          is_featured: boolean;
         };
         Insert: {
           id?: string;
@@ -19,6 +24,11 @@ export interface Database {
           icon?: string | null;
           sort_order?: number;
           created_at?: string;
+          slug?: string | null;
+          category?: string | null;
+          difficulty?: string | null;
+          estimated_hours?: number | null;
+          is_featured?: boolean;
         };
         Update: {
           id?: string;
@@ -27,6 +37,11 @@ export interface Database {
           icon?: string | null;
           sort_order?: number;
           created_at?: string;
+          slug?: string | null;
+          category?: string | null;
+          difficulty?: string | null;
+          estimated_hours?: number | null;
+          is_featured?: boolean;
         };
       };
       learning_stages: {
