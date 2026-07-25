@@ -74,14 +74,17 @@ export default async function QuestionDetailPage({ params }: Props) {
 
         {question.answer && (
           <div className="prose prose-neutral dark:prose-invert max-w-none">
-            <div className="rounded-lg border bg-muted/30 p-6">
-              <p className="text-muted-foreground text-sm mb-3">
-                参考答案将在 Phase 3 完善 MDX 渲染后完整展示。以下是原始内容：
-              </p>
-              <pre className="whitespace-pre-wrap text-sm text-foreground/80 max-h-[600px] overflow-auto">
-                {question.answer}
-              </pre>
-            </div>
+            <h2 className="text-xl font-semibold mb-4">参考答案</h2>
+            {question.answer.split('\n').map((line, i) => {
+              if (line.startsWith('# ')) return <h1 key={i} className="text-3xl font-bold tracking-tight mt-6 mb-4">{line.slice(2)}</h1>;
+              if (line.startsWith('## ')) return <h2 key={i} className="text-2xl font-semibold tracking-tight mt-5 mb-3">{line.slice(3)}</h2>;
+              if (line.startsWith('### ')) return <h3 key={i} className="text-xl font-semibold mt-4 mb-2">{line.slice(4)}</h3>;
+              if (line.startsWith('- ')) return <li key={i} className="ml-4 text-foreground/80">{line.slice(2)}</li>;
+              if (line.startsWith('```')) return <div key={i} className="rounded-lg bg-muted p-4 my-4 font-mono text-sm overflow-x-auto" />;
+              if (line.startsWith('| ')) return <p key={i} className="font-mono text-sm">{line}</p>;
+              if (line.trim() === '') return <br key={i} />;
+              return <p key={i} className="text-foreground/80 leading-relaxed">{line.replace(/\*\*(.*?)\*\*/g, '$1')}</p>;
+            })}
           </div>
         )}
       </article>
