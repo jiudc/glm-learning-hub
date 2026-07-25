@@ -240,6 +240,22 @@ export interface Database {
         Insert: { id?: string; name: string; description?: string | null; category?: string | null; formula?: string | null; tool?: string | null; use_case?: string | null; created_at?: string };
         Update: { id?: string; name?: string; description?: string | null; category?: string | null; formula?: string | null; tool?: string | null; use_case?: string | null; created_at?: string };
       };
+      tech_news: {
+        Row: {
+          id: string;
+          title: string;
+          summary: string | null;
+          source_url: string | null;
+          source_name: string | null;
+          category: string | null;
+          tags: string[] | null;
+          published_date: string | null;
+          is_featured: boolean;
+          created_at: string;
+        };
+        Insert: { id?: string; title: string; summary?: string | null; source_url?: string | null; source_name?: string | null; category?: string | null; tags?: string[] | null; published_date?: string | null; is_featured?: boolean; created_at?: string };
+        Update: { id?: string; title?: string; summary?: string | null; source_url?: string | null; source_name?: string | null; category?: string | null; tags?: string[] | null; published_date?: string | null; is_featured?: boolean; created_at?: string };
+      };
     };
   };
 }
