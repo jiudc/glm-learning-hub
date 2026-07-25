@@ -10,8 +10,9 @@ import { cn } from "@/lib/utils";
 const navItems = [
   { href: "/", label: "首页" },
   { href: "/paths", label: "学习路径" },
-  { href: "/resources", label: "资源导航" },
-  { href: "/notes", label: "学习笔记" },
+  { href: "/interview", label: "面试题" },
+  { href: "/projects", label: "项目" },
+  { href: "/evaluation", label: "评估" },
   { href: "/admin", label: "管理" },
   { href: "/about", label: "关于" },
 ];
